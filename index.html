@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dooyaabari Godwin Imeah's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+        }
+        .projects {
+            list-style-type: none;
+            padding: 0;
+        }
+        .projects li {
+            margin: 10px 0;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Image slider styles */
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 300%; /* 3 images side by side */
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dooyaabari Godwin Imeah</h1>
+    <p>Welcome to my personal portfolio!</p>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>Hello! I'm Dooyaabari Godwin Imeah, a passionate developer with a love for creating innovative solutions.</p>
+</section>
+
+<section>
+    <h2>Projects</h2>
+    <ul class="projects">
+        <li><a href="#" target="_blank">Project 1: Amazing App</a> - A brief description of what this project does.</li>
+        <li><a href="#" target="_blank">Project 2: Awesome Website</a> - A brief description of what this project does.</li>
+        <li><a href="#" target="_blank">Project 3: Cool Tool</a> - A brief description of what this project does.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Image Slider</h2>
+    <div class="slider">
+        <div class="slides" id="slides">
+            <div class="slide"><img src="image1.jpg" alt="Project Image 1"></div>
+            <div class="slide"><img src="image2.jpg" alt="Project Image 2"></div>
+            <div class="slide"><img src="image3.jpg" alt="Project Image 3"></div>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="prevSlide()">&#10094;</button>
+            <button class="button" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <p>If you'd like to get in touch, feel free to reach out via email at <a href="mailto:youremail@example.com">youremail@example.com</a>.</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Dooyaabari Godwin Imeah</p>
+</footer>
+
+<script>
+    let currentSlide = 0;
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function showSlide(index) {
+        const slides = document.getElementById('slides');
+        if (index >= totalSlides) currentSlide = 0;
+        else if (index < 0) currentSlide = totalSlides - 1;
+        else currentSlide = index;
+
+        const offset = -currentSlide * 100;
+        slides.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    // Automatically change slides every 3 seconds
+    setInterval(() => {
+        nextSlide();
+    }, 3000);
+
+    // Show the first slide initially
+    showSlide(currentSlide);
+</script>
+
+</body>
+</html>
